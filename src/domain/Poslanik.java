@@ -3,16 +3,17 @@ package domain;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Poslanik {
+	@SerializedName("id")
 	private int id;
-
+	@SerializedName("name")
 	private String ime;
-
+	@SerializedName("lastName")
 	private String prezime;
-
+	@SerializedName("birthDate")
 	private Date datumRodjenja;
-
-	private String mestoRodjenja;
 
 	public int getId() {
 		return id;
@@ -46,13 +47,6 @@ public class Poslanik {
 		this.datumRodjenja = datumRodjenja;
 	}
 
-	public String getMestoRodjenja() {
-		return mestoRodjenja;
-	}
-
-	public void setMestoRodjenja(String mestoRodjenja) {
-		this.mestoRodjenja = mestoRodjenja;
-	}
 
 	@Override
 	public String toString() {
@@ -64,8 +58,7 @@ public class Poslanik {
 	public boolean equals(Object obj) {
 		if(obj instanceof Poslanik){
 			Poslanik p = (Poslanik) obj;
-			if(ime.equals(p.getIme()) && prezime.equals(p.getPrezime()) && (datumRodjenja.compareTo(p.getDatumRodjenja()) != 0)
-					&& mestoRodjenja.equals(p.getMestoRodjenja() )){
+			if(ime.equals(p.getIme()) && prezime.equals(p.getPrezime()) && (datumRodjenja.compareTo(p.getDatumRodjenja()) != 0)){
 				return true;
 			}else{
 				return false;
